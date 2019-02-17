@@ -9,20 +9,26 @@
             text-color="#fff"
             active-text-color="#ffd04b"
             :collapse="isCollapse">
-        <el-menu-item index="1">
-            <i class="el-icon-menu"></i>
-            <span slot="title">主页</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">地图</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-            <i class="el-icon-menu"></i>
-            <span slot="title">收藏</span>
-        </el-menu-item>
+        <router-link class="no-underline" to="/home">
+            <el-menu-item index="1">
+                <i class="el-icon-menu"></i>
+                <span slot="title">主页</span>
+            </el-menu-item>
+        </router-link>
+        <router-link class="no-underline" to="/footprint">
+            <el-menu-item index="2">
+                <i class="el-icon-location"></i>
+                <span slot="title">足迹</span>
+            </el-menu-item>
+        </router-link>
+        <router-link class="no-underline" to="/favorites">
+            <el-menu-item index="3">
+                <i class="el-icon-star-on"></i>
+                <span slot="title">收藏</span>
+            </el-menu-item>
+        </router-link>
         <el-menu-item index="4">
-            <i class="el-icon-document"></i>
+            <i class="el-icon-setting"></i>
             <span slot="title">设置</span>
         </el-menu-item>
     </el-menu>
@@ -32,7 +38,7 @@
   export default {
     data() {
       return {
-        isCollapse: true,
+        isCollapse: false,
       };
     },
     methods: {
@@ -52,5 +58,7 @@
 </script>
 
 <style scoped>
-
+    .no-underline {
+        text-decoration: none
+    }
 </style>

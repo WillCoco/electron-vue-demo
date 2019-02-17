@@ -1,17 +1,27 @@
 <template>
-  <div id="wrapper">
-    <el-card class="box-card">
-      <div v-for="o in 4" :key="o" class="text item">
-        {{'列表内容 ' + o }}
-      </div>
-    </el-card>
+  <div id="wrapper" class="content-wrapper padding-x">
+      <user v-bind:data="data"></user>
+      <controler></controler>
   </div>
 </template>
 
 <script>
+  import User from './User/User.vue'
+  import Controler from './Controler/Controler.vue'
+  import data from '../model/users'
+
   export default {
     name: 'homePage',
-    created() {
+    components: {
+      User,
+      Controler
+    },
+    data: function() {
+      return {
+          data
+      }
+    },
+    mounted() {
       console.log(this.$db, 111000);
     },
     methods: {
@@ -22,22 +32,7 @@
   };
 </script>
 
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+<style scoped>
 
-  #wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-  }
-
-  .box-card {
-    width: 80%;
-  }
 
 </style>

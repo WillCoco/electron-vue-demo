@@ -6,13 +6,22 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+        path: '*',
+        redirect: '/',
+    },{
       path: '/',
-      name: 'homePage',
+      name: 'home',
       component: require('@/components/HomePage').default,
     },
     {
-      path: '*',
-      redirect: '/',
+        path: '/footprint',
+        name: '/footprint',
+        component: require('@/components/FootprintPage').default,
     },
+      {
+          path: '/favorites',
+          name: '/favorites',
+          component: require('@/components/Favorites').default,
+      },
   ],
 });
