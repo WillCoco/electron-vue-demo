@@ -5,7 +5,7 @@ const state = {
   souls: [],
   soul: null,
   currentSoulId: null,
-  count: 0
+  tags: []
 };
 
 const mutations = {
@@ -17,13 +17,23 @@ const mutations = {
   FAVOR_SOUL(state, payload) {
     state.soul = {...state.soul, isFavorite: payload.isFavor};
   },
+  EDIT_TAG(state, payload) {
+    if (payload.isAdd) {
+      state.tags = [...state.tags, payload.userId];
+    } else {
+      let index = state.tags.indexOf(payload.userId);
+      if (index !== -1) {
+        state.tags.splice(index, 1);
+      }
+    }
+  },
 };
 
 const actions = {
-  async getSoul({ commit, state }, { offset }) {
+  async getSoul({ commit, state }, { userId, offset }) {
     const simplify = new db.Database(`../simplify/hangzhou`);
     await simplify.connectDb();
-    const soul = await simplify.readSoulById(state.currentSoulId, offset);
+    const soul = await simplify.readSoulById(userId || state.currentSoulId, offset);
     await simplify.closeDb();
     commit('GET_SOUL', {soul: parse(soul) || {}});
   },
@@ -35,7 +45,12 @@ const actions = {
     await simplify.closeDb();
 
     commit('FAVOR_SOUL', {isFavor});
-  }
+  },
+  async editTag({ commit, state }, { userId, isAdd }) {
+    if (userId) {
+      commit('EDIT_TAG', {userId, isAdd});
+    }
+  },
 };
 
 const parse = (data) => {

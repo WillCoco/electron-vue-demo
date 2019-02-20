@@ -135,7 +135,8 @@
   .user-card-basic {
     height: 100%;
     width: 200px;
-    padding: 20px
+    padding: 20px;
+    position: relative;
   }
   .user-box-info {
     display: flex;
@@ -175,7 +176,7 @@
   }
   .post-img {
     width: 100%;
-
   }
+
 
 </style>

@@ -30,6 +30,7 @@
       // 添加足迹
       addMark(postions) {
         let markQty = 0;
+        // todo：有一个始终在钱江
         postions.forEach(d => {
           if (d.latitude && d.longitude) {
             const marker = new BMap.Marker(new BMap.Point(d.longitude, d.latitude));
