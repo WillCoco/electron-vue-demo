@@ -11,7 +11,7 @@ export default new Vuex.Store({
   modules,
   plugins: [
     createPersistedState(),
-    createSharedMutations(),
+    // createSharedMutations(), // 与主进程共享store，需要在main中import store
   ],
   strict: process.env.NODE_ENV !== 'production',
 });

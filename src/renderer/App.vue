@@ -24,6 +24,7 @@
     justify-content: center;
     display: flex;
     overflow: auto;
+    position: relative;
   }
   .padding-x {
     padding: 24px;

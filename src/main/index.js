@@ -1,7 +1,6 @@
 import { app, BrowserWindow } from 'electron' // eslint-disable-line
-// import db from '../database/base';
+// import '../renderer/store/'
 
-// console.log(db, 'db');
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -22,7 +21,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 680,
     useContentSize: true,
-    width: 600,
+    width: 880,
   });
 
   mainWindow.loadURL(winURL);

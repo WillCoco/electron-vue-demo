@@ -27,10 +27,12 @@
                 <span slot="title">收藏</span>
             </el-menu-item>
         </router-link>
-        <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">设置</span>
-        </el-menu-item>
+        <router-link class="no-underline" to="/DBSplit">
+            <el-menu-item index="4">
+                <i class="el-icon-setting"></i>
+                <span slot="title">设置</span>
+            </el-menu-item>
+        </router-link>
     </el-menu>
 </template>
 

@@ -9,5 +9,7 @@ npm-debug.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
-db/
+**/database/db/
+**/database/simplify/
+
 .idea/

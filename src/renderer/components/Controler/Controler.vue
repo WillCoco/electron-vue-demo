@@ -1,30 +1,33 @@
 <template>
   <div>
-    <el-button class="btn-favorite" type="danger" icon="el-icon-star-on" circle></el-button>
-    <el-button @click="getSoul(false)" class="btn-per" size="mini" icon="el-icon-caret-top" circle></el-button>
-    <el-button @click="getSoul(true)" class="btn-next" size="mini" icon="el-icon-caret-bottom" circle></el-button>
+    <el-button @click="favor(!isFavorite)" class="btn-favorite" v-bind:type="isFavorite ? 'danger' : 'info'" icon="el-icon-star-on" circle></el-button>
+    <el-button @click="getSoul(-1)" class="btn-per" size="mini" icon="el-icon-caret-top" circle></el-button>
+    <el-button @click="getSoul(1)" class="btn-next" size="mini" icon="el-icon-caret-bottom" circle></el-button>
   </div>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-
   export default {
     name: 'controler',
     data: function() {
       return {
-        isFavorite: false
       }
     },
     computed: {
+      isFavorite() {
+        const { isFavorite } = this.$store.state.souls.soul || {};
+        return isFavorite;
+      },
     },
     mounted() {
-      console.log(this, 888)
+
     },
     methods: {
-      getSoul(isNext) {
-        console.log(this.$store.dispatch('getSoul'), 9999)
-        this.$store.dispatch('getSoul');
+      getSoul: function(offset) {
+        this.$store.dispatch('getSoul', {offset});
+      },
+      favor: function(isFavor) {
+        this.$store.dispatch('favor', {isFavor});
       }
     },
   };
@@ -45,5 +48,11 @@
     position: fixed;
     top: 140px;
     right: 54px;
+  }
+  .favoriteOn {
+    background: #ccc;
+  }
+  .favoriteOff {
+    background: #ff0000;
   }
 </style>
