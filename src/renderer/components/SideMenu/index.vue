@@ -34,7 +34,7 @@
             </el-menu-item>
             <div v-for="id in tags">
                 <a @click="getSoul(id)" href="#" class="tag-text no-underline">{{ id }}</a><a
-                    @click="editTag()" href="#" class="el-icon-delete no-underline tag-del"></a>
+                    @click="editTag(id)" href="#" class="el-icon-delete no-underline tag-del"></a>
             </div>
         </div>
 
@@ -67,8 +67,7 @@
       getSoul(userId) {
         this.$store.dispatch('getSoul', {userId});
       },
-      editTag: function(isAdd) {
-        const { userId } = this.$store.state.souls.soul || {};
+      editTag: function(userId, isAdd) {
         this.$store.dispatch('editTag', {userId, isAdd})
       }
     },

@@ -5,6 +5,7 @@
         <img class="avatar" v-bind:src="avatar" alt="avatar">
         <p class="text-normal text-id">avatar: {{ soul.userInfo && soul.userInfo.avatarName }}</p>
         <p class="text-normal text-id">用户id: {{ soul.userId }}</p>
+        <p v-if="soul.signature" class="text-normal text-id">用户签名: {{ soul.signature }}</p>
         <p class="text-normal text-time">注册时间: {{ registerTime }}</p>
       </div>
       <div class="user-box-info">
