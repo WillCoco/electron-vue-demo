@@ -9,7 +9,9 @@ npm-debug.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
+**/database/*.sqlite3
 **/database/db/
+**/database/dbstore/
 **/database/simplify/
 
 .idea/

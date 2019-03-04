@@ -2,6 +2,12 @@
 
 > An electron-vue project
 
+#### Screen Capture
+![soul](https://github.com/yimai-io/lubanso-wallet-desktop/blob/master/src/images/soul.png)
+![f](https://github.com/yimai-io/lubanso-wallet-desktop/blob/master/src/images/footprint.png)
+
+
+
 #### Build Setup
 
 ``` bash
